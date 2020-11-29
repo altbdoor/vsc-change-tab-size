@@ -1,0 +1,55 @@
+{
+    "name": "change-tab-size",
+    "displayName": "Change Tab Size",
+    "description": "Changes tab sizes to follow global settings",
+    "version": "0.1.0",
+    "engines": {
+        "vscode": "^1.51.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:changeTabSize.followDefault"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "changeTabSize.followDefault",
+                "title": "Change to default in global settings",
+                "category": "Change Tab Size"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "yarn run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "yarn run compile && yarn run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js",
+        "pretty": "prettier --write ./*.json src/**/*.ts"
+    },
+    "dependencies": {
+        "@types/glob": "^7.1.3",
+        "@types/mocha": "^8.0.0",
+        "@types/node": "^12.11.7",
+        "@types/vscode": "^1.51.0",
+        "@typescript-eslint/eslint-plugin": "^4.1.1",
+        "@typescript-eslint/parser": "^4.1.1",
+        "eslint": "^7.9.0",
+        "glob": "^7.1.6",
+        "mocha": "^8.1.3",
+        "prettier": "^2.2.1",
+        "typescript": "^4.0.2",
+        "vsce": "^1.81.1",
+        "vscode-test": "^1.4.0"
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "semi": true,
+        "singleQuote": true
+    },
+    "publisher": "altbdoor"
+}
