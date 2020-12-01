@@ -2,7 +2,7 @@
     "name": "change-tab-size",
     "displayName": "Change Tab Size",
     "description": "Changes tab sizes of files to follow global settings.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "engines": {
         "vscode": "^1.51.0"
     },

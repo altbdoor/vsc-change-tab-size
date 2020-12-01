@@ -1,34 +1,23 @@
-import {
-    commands,
-    ExtensionContext,
-    TextEditor,
-    window,
-    workspace,
-} from 'vscode';
+import { commands, ExtensionContext, TextEditor, workspace } from 'vscode';
 
 export async function activate(context: ExtensionContext) {
-    const disposable = commands.registerCommand(
-        'changeTabSize.followDefault',
-        async () => {
-            const editor = window.activeTextEditor;
-
-            if (!editor) {
-                return;
+    context.subscriptions.push(
+        commands.registerTextEditorCommand(
+            'changeTabSize.followDefault',
+            async (editor, _) => {
+                convert(editor, getGlobalTabSize());
             }
-
-            const defaultTabSize = Number(
-                workspace.getConfiguration('editor').get('tabSize')
-            );
-            convert(editor, defaultTabSize);
-        }
+        )
     );
-
-    context.subscriptions.push(disposable);
 }
 
 export async function deactivate() {}
 
 // =====
+
+function getGlobalTabSize() {
+    return Number(workspace.getConfiguration('editor').get('tabSize'));
+}
 
 async function convert(editor: TextEditor, target: number) {
     await commands.executeCommand('editor.action.detectIndentation');
