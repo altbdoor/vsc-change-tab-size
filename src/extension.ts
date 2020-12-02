@@ -1,17 +1,17 @@
 import { commands, ExtensionContext, TextEditor, workspace } from 'vscode';
 
-export async function activate(context: ExtensionContext) {
+export function activate(context: ExtensionContext) {
     context.subscriptions.push(
         commands.registerTextEditorCommand(
             'changeTabSize.followDefault',
-            async (editor, _) => {
+            (editor, _) => {
                 convert(editor, getGlobalTabSize());
             }
         )
     );
 }
 
-export async function deactivate() {}
+export function deactivate() {}
 
 // =====
 
