@@ -24,7 +24,7 @@ export function activate(context: ExtensionContext) {
 
             const activeLanguages: string[] =
                 workspace
-                    .getConfiguration('changetabsize')
+                    .getConfiguration('changeTabSize')
                     .get('activateOnLanguages') || [];
 
             if (activeLanguages.includes(editor.document.languageId)) {

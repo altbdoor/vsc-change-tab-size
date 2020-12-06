@@ -2,7 +2,7 @@
     "name": "change-tab-size",
     "displayName": "Change Tab Size",
     "description": "Changes the tab size of the opened file to follow the global tab size specified in the global settings.",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "engines": {
         "vscode": "^1.51.0"
     },
@@ -25,7 +25,7 @@
         "configuration": {
             "title": "Change Tab Size",
             "properties": {
-                "changetabsize.activateOnLanguages": {
+                "changeTabSize.activateOnLanguages": {
                     "type": "array",
                     "default": [],
                     "markdownDescription": "Automatically run the change tab size command when files with the specified [language identifiers](https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers) are active"

@@ -15,7 +15,7 @@ Works best with:
 
 ## Extension Settings
 
-- `changetabsize.activateOnLanguages`
+- `changeTabSize.activateOnLanguages`
     - Automatically run the change tab size command when files with the specified [language identifiers](https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers) are active.
     - Defaults to an empty array.
 
