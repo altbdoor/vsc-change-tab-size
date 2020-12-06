@@ -1,4 +1,10 @@
-import { commands, ExtensionContext, TextEditor, workspace } from 'vscode';
+import {
+    commands,
+    ExtensionContext,
+    TextEditor,
+    window,
+    workspace,
+} from 'vscode';
 
 export function activate(context: ExtensionContext) {
     context.subscriptions.push(
@@ -8,6 +14,25 @@ export function activate(context: ExtensionContext) {
                 convert(editor, getGlobalTabSize());
             }
         )
+    );
+
+    window.onDidChangeActiveTextEditor(
+        (editor) => {
+            if (!editor) {
+                return;
+            }
+
+            const activeLanguages: string[] =
+                workspace
+                    .getConfiguration('changetabsize')
+                    .get('activateOnLanguages') || [];
+
+            if (activeLanguages.includes(editor.document.languageId)) {
+                convert(editor, getGlobalTabSize());
+            }
+        },
+        null,
+        context.subscriptions
     );
 }
 
