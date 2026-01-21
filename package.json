@@ -1,71 +1,61 @@
 {
-    "name": "change-tab-size",
-    "displayName": "Change Tab Size",
-    "description": "Changes the tab size of the opened file to follow the global tab size specified in the global settings.",
-    "version": "0.2.1",
-    "engines": {
-        "vscode": "^1.51.0"
-    },
-    "categories": [
-        "Other"
+  "name": "change-tab-size",
+  "displayName": "Change Tab Size",
+  "description": "Changes the tab size of the opened file to follow the global tab size specified in the global settings.",
+  "version": "0.3.0",
+  "engines": {
+    "vscode": "^1.108.1"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "changeTabSize.followDefault",
+        "title": "Change to default in global settings",
+        "category": "Change Tab Size"
+      }
     ],
-    "activationEvents": [
-        "onCommand:changeTabSize.followDefault",
-        "onStartupFinished"
-    ],
-    "main": "./out/extension.js",
-    "contributes": {
-        "commands": [
-            {
-                "command": "changeTabSize.followDefault",
-                "title": "Change to default in global settings",
-                "category": "Change Tab Size"
-            }
-        ],
-        "configuration": {
-            "title": "Change Tab Size",
-            "properties": {
-                "changeTabSize.activateOnLanguages": {
-                    "type": "array",
-                    "default": [],
-                    "markdownDescription": "Automatically run the change tab size command when files with the specified [language identifiers](https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers) are active"
-                }
-            }
+    "configuration": {
+      "title": "Change Tab Size",
+      "properties": {
+        "changeTabSize.activateOnLanguages": {
+          "type": "array",
+          "default": [],
+          "markdownDescription": "Automatically run the change tab size command when files with the specified [language identifiers](https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers) are active"
         }
-    },
-    "scripts": {
-        "vscode:prepublish": "yarn run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "pretest": "yarn run compile && yarn run lint",
-        "lint": "eslint src --ext ts",
-        "test": "node ./out/test/runTest.js",
-        "pretty": "prettier --write ./*.json src/**/*.ts"
-    },
-    "devDependencies": {
-        "@types/glob": "^7.1.3",
-        "@types/mocha": "^8.0.0",
-        "@types/node": "^12.11.7",
-        "@types/vscode": "^1.51.0",
-        "@typescript-eslint/eslint-plugin": "^4.1.1",
-        "@typescript-eslint/parser": "^4.1.1",
-        "eslint": "^7.9.0",
-        "glob": "^7.1.6",
-        "mocha": "^8.1.3",
-        "prettier": "^2.2.1",
-        "typescript": "^4.0.2",
-        "vsce": "^1.81.1",
-        "vscode-test": "^1.4.0"
-    },
-    "prettier": {
-        "tabWidth": 4,
-        "semi": true,
-        "singleQuote": true
-    },
-    "publisher": "altbdoor",
-    "repository": {
-        "url": "https://github.com/altbdoor/vsc-change-tab-size",
-        "type": "git"
-    },
-    "license": "MIT"
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "pretty": "prettier -wu --log-level warn \"**/*\""
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.19.7",
+    "@types/vscode": "^1.108.1",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.2",
+    "prettier": "^3.8.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.52.0"
+  },
+  "publisher": "altbdoor",
+  "repository": {
+    "url": "https://github.com/altbdoor/vsc-change-tab-size",
+    "type": "git"
+  },
+  "license": "MIT"
 }

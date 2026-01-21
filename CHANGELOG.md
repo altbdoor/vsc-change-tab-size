@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.3.0
+
+- Restart project with new generator from VSCode.
+- Fix behavior to re-detect the indentation, after changing the tab sizes.
+
 ## 0.2.1
 
 - Small fix to standardize the namespace used for both configuration and command.
